@@ -14,6 +14,7 @@
         <version.richfaces>3.2.2.GA</version.richfaces>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <javaee6.web.spec.version>3.0.1.Final</javaee6.web.spec.version>
+        <version.hibernate>5.3.7.Final</version.hibernate>
     </properties>
 
     <!-- test scope dependency -->
@@ -154,13 +155,6 @@
                 <groupId>javax.validation</groupId>
                 <artifactId>validation-api</artifactId>
                 <version>1.0.0.GA</version>
-                <scope>provided</scope>
-            </dependency>
-
-            <dependency>
-                <groupId>org.hibernate</groupId>
-                <artifactId>hibernate-core</artifactId>
-                <version>5.3.7.Final</version>
                 <scope>provided</scope>
             </dependency>
 

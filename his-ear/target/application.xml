@@ -1,16 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE application PUBLIC
-	"-//Sun Microsystems, Inc.//DTD J2EE Application 1.3//EN"
-	"http://java.sun.com/dtd/application_1_3.dtd">
-<application>
-  <display-name>his-ear</display-name>
-  <module>
-    <web>
-      <web-uri>his-war.war</web-uri>
-      <context-root>/his</context-root>
-    </web>
-  </module>
-  <module>
-    <ejb>his-ejb.jar</ejb>
-  </module>
+<application xmlns="https://jakarta.ee/xml/ns/jakartaee"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/application_9.xsd"
+             version="9">
+
+    <module>
+        <web>
+            <web-uri>his-war.war</web-uri>
+            <context-root>/his</context-root>
+        </web>
+    </module>
 </application>
