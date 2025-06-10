@@ -26,7 +26,6 @@
                 <artifactId>maven-ear-plugin</artifactId>
                 <version>2.10.1</version>
                 <configuration>
-                    <ear-subdeployments-isolated>false</ear-subdeployments-isolated>
                     <defaultLibBundleDir>lib</defaultLibBundleDir>
                     <skinnyWars>true</skinnyWars>
 
@@ -82,7 +81,6 @@
         <dependency>
             <groupId>org.jboss.seam</groupId>
             <artifactId>jboss-seam</artifactId>
-            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>com.test.his</groupId>
