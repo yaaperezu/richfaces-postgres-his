@@ -1,12 +1,9 @@
 package com.test.his.model;
 
-import org.hibernate.validator.constraints.Length;
-
 import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 import javax.persistence.Version;
@@ -46,7 +43,6 @@ public abstract class AbstractEntity implements Serializable {
 	}
 
 	@NotNull
-	@Length(max = 200)
 	@Column(name = "name")
 	public String getName() {
 		return name;
