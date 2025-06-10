@@ -3,12 +3,17 @@
         <exclusions>
             <module name="org.hibernate"/>
         </exclusions>
+        <module-spec name="deployment.his-ear.ear.jboss-seam">
+            <resource-roots>
+                <resource-root path="jboss-seam.jar"/>
+            </resource-roots>
+        </module-spec>
     </deployment>
 
     <sub-deployment name="his-ejb.jar">
         <dependencies>
             <module name="deployment.his-ear.ear"/>
-            <resource-root path="jboss-seam.jar"/>
+            <module name="deployment.his-ear.ear.jboss-seam"/>
         </dependencies>
     </sub-deployment>
 
