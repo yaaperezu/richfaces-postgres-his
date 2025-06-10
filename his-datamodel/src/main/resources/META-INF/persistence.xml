@@ -6,11 +6,9 @@
     <persistence-unit name="his-PersistenceUnit">
         <jta-data-source>java:/jdbc/userManagementDS</jta-data-source>
         <properties>
-            <property name="jboss.as.jpa.providerModule" value="org.hibernate" />
-
-            <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect"/>
-            <property name="hibernate.hbm2ddl.auto" value="update" />
-            <property name="hibernate.show_sql" value="true" />
+            <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQL94Dialect"/>
+            <property name="hibernate.hbm2ddl.auto" value="update"/>
+            <property name="hibernate.show_sql" value="true"/>
         </properties>
     </persistence-unit>
 </persistence>
