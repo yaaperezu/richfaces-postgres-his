@@ -40,133 +40,48 @@
 
     </dependencies>
 
-    <build>
-        <pluginManagement>
-            <plugins>
-                <plugin>
-                    <artifactId>maven-ear-plugin</artifactId>
-                    <version>2.7</version>
-                </plugin>
-                <plugin>
-                    <artifactId>maven-ejb-plugin</artifactId>
-                    <version>2.3</version>
-                    <configuration>
-                        <ejbVersion>3.1</ejbVersion>
-                        <archive>
-                            <manifest>
-                                <addClasspath>false</addClasspath>
-                            </manifest>
-                        </archive>
-                    </configuration>
-                </plugin>
-                <plugin>
-                    <artifactId>maven-compiler-plugin</artifactId>
-                    <version>2.3.2</version>
-                    <configuration>
-                        <source>1.6</source>
-                        <target>1.6</target>
-                    </configuration>
-                </plugin>
-
-                <plugin>
-                    <artifactId>maven-jar-plugin</artifactId>
-                    <version>2.4</version>
-                    <executions>
-                        <execution>
-                            <goals>
-                                <goal>test-jar</goal>
-                            </goals>
-                        </execution>
-                    </executions>
-                    <configuration>
-                        <archive>
-                            <manifest>
-                                <addClasspath>true</addClasspath>
-                            </manifest>
-                        </archive>
-                    </configuration>
-                </plugin>
-
-                <plugin>
-                    <artifactId>maven-war-plugin</artifactId>
-                    <version>2.2</version>
-                </plugin>
-
-                <plugin>
-                    <artifactId>maven-surefire-plugin</artifactId>
-                    <version>2.12</version>
-                    <configuration>
-                        <argLine>-enableassertions</argLine>
-                    </configuration>
-                </plugin>
-
-                <plugin>
-                    <artifactId>maven-resources-plugin</artifactId>
-                    <version>2.6</version>
-                </plugin>
-            </plugins>
-        </pluginManagement>
-    </build>
-
     <dependencyManagement>
         <dependencies>
+            <dependency>
+                <groupId>com.test.his</groupId>
+                <artifactId>his-datamodel</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.test.his</groupId>
+                <artifactId>his-ejb</artifactId>
+                <version>${project.version}</version>
+                <type>ejb</type>
+            </dependency>
+            <dependency>
+                <groupId>com.test.his</groupId>
+                <artifactId>his-war</artifactId>
+                <version>${project.version}</version>
+                <type>war</type>
+            </dependency>
+
             <dependency>
                 <groupId>javax.persistence</groupId>
                 <artifactId>javax.persistence-api</artifactId>
                 <version>2.2</version>
                 <scope>provided</scope>
             </dependency>
-
-            <dependency>
-                <groupId>com.test.his</groupId>
-                <artifactId>his-datamodel</artifactId>
-                <version>1.0-SNAPSHOT</version>
-            </dependency>
-            <dependency>
-                <groupId>com.test.his</groupId>
-                <artifactId>his-ejb</artifactId>
-                <version>1.0-SNAPSHOT</version>
-                <type>ejb</type>
-            </dependency>
-            <dependency>
-                <groupId>com.test.his</groupId>
-                <artifactId>his-war</artifactId>
-                <version>1.0-SNAPSHOT</version>
-                <type>war</type>
-            </dependency>
-
-            <dependency>
-                <groupId>com.test.his</groupId>
-                <artifactId>his-war</artifactId>
-                <version>1.0-SNAPSHOT</version>
-                <type>pom</type>
-            </dependency>
-
             <dependency>
                 <groupId>org.jboss.spec.javax.ejb</groupId>
                 <artifactId>jboss-ejb-api_3.2_spec</artifactId>
                 <version>1.0.0.Final-redhat-1</version>
                 <scope>provided</scope>
             </dependency>
-
             <dependency>
                 <groupId>javax.validation</groupId>
                 <artifactId>validation-api</artifactId>
                 <version>1.0.0.GA</version>
                 <scope>provided</scope>
             </dependency>
-
             <dependency>
-                <groupId>org.hibernate</groupId>
-                <artifactId>hibernate-validator</artifactId>
-                <version>6.0.13.Final</version>
-                <scope>provided</scope>
-            </dependency>
-
-            <dependency>
-                <groupId>org.hibernate.javax.persistence</groupId>
-                <artifactId>hibernate-jpa-2.1-api</artifactId>
-                <version>1.0.2.Final</version>
+                <groupId>javax.servlet</groupId>
+                <artifactId>servlet-api</artifactId>
+                <version>2.4</version>
                 <scope>provided</scope>
             </dependency>
 
@@ -174,60 +89,67 @@
                 <groupId>org.jboss.seam</groupId>
                 <artifactId>jboss-seam</artifactId>
                 <version>${version.seam}</version>
-                <exclusions>
-                    <exclusion>
-                        <groupId>org.hibernate</groupId>
-                        <artifactId>hibernate-core</artifactId>
-                    </exclusion>
-                    <exclusion>
-                        <groupId>org.hibernate</groupId>
-                        <artifactId>hibernate-entitymanager</artifactId>
-                    </exclusion>
-                </exclusions>
             </dependency>
-
             <dependency>
                 <groupId>org.jboss.seam</groupId>
                 <artifactId>jboss-seam</artifactId>
                 <version>${version.seam}</version>
                 <type>ejb</type>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.jboss.seam</groupId>
+                <artifactId>jboss-seam-ui</artifactId>
+                <version>${version.seam}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.jboss.seam</groupId>
+                <artifactId>jboss-seam-debug</artifactId>
+                <version>${version.seam}</version>
                 <scope>runtime</scope>
             </dependency>
+            <dependency>
+                <groupId>org.jboss.el</groupId>
+                <artifactId>jboss-el</artifactId>
+                <version>1.0_02.CR6</version>
+            </dependency>
+            <dependency>
+                <groupId>dom4j</groupId>
+                <artifactId>dom4j</artifactId>
+                <version>1.6.1</version>
+            </dependency>
+            <dependency>
+                <groupId>commons-collections</groupId>
+                <artifactId>commons-collections</artifactId>
+                <version>3.2</version>
+            </dependency>
 
-            <!-- Librerias de presentación -->
+
             <dependency>
                 <groupId>javax.faces</groupId>
                 <artifactId>jsf-api</artifactId>
-                <version>1.2.15.b01-redhat-12</version>
+                <version>1.2_15</version>
             </dependency>
-
             <dependency>
                 <groupId>javax.faces</groupId>
                 <artifactId>jsf-impl</artifactId>
-                <version>1.2.15.b01-redhat-12</version>
+                <version>1.2_15</version>
             </dependency>
-
             <dependency>
                 <groupId>org.richfaces.ui</groupId>
                 <artifactId>richfaces-ui</artifactId>
-                <version>3.2.2.GA</version>
-                <scope>provided</scope>
+                <version>${version.richfaces}</version>
             </dependency>
-
             <dependency>
                 <groupId>org.richfaces.framework</groupId>
                 <artifactId>richfaces-api</artifactId>
-                <version>3.2.2.GA</version>
-                <scope>provided</scope>
+                <version>${version.richfaces}</version>
             </dependency>
-
             <dependency>
                 <groupId>org.richfaces.framework</groupId>
                 <artifactId>richfaces-impl</artifactId>
-                <version>3.2.2.GA</version>
-                <scope>provided</scope>
+                <version>${version.richfaces}</version>
             </dependency>
-
             <dependency>
                 <groupId>com.sun.facelets</groupId>
                 <artifactId>jsf-facelets</artifactId>
@@ -235,23 +157,25 @@
             </dependency>
 
             <dependency>
-                <groupId>javax.servlet</groupId>
-                <artifactId>servlet-api</artifactId>
-                <version>2.4</version>
+                <groupId>org.hibernate</groupId>
+                <artifactId>hibernate-core</artifactId>
+                <version>${version.hibernate}</version>
             </dependency>
-
             <dependency>
-                <groupId>net.sourceforge.jexcelapi</groupId>
-                <artifactId>jxl</artifactId>
-                <version>2.6.8-seam</version>
+                <groupId>org.hibernate</groupId>
+                <artifactId>hibernate-annotations</artifactId>
+                <version>${version.hibernate}</version>
             </dependency>
-
             <dependency>
-                <groupId>net.sf.sojo</groupId>
-                <artifactId>sojo</artifactId>
-                <version>1.0.5</version>
+                <groupId>org.hibernate</groupId>
+                <artifactId>hibernate-entitymanager</artifactId>
+                <version>${version.hibernate}</version>
             </dependency>
-            <!-- Fin Librerias de presentación -->
+            <dependency>
+                <groupId>org.hibernate</groupId>
+                <artifactId>hibernate-validator</artifactId>
+                <version>3.1.0.GA</version>
+            </dependency>
 
             <dependency>
                 <groupId>org.postgresql</groupId>
@@ -259,6 +183,7 @@
                 <version>42.7.3</version>
                 <scope>provided</scope>
             </dependency>
+
         </dependencies>
     </dependencyManagement>
 
@@ -341,5 +266,74 @@
             </snapshots>
         </pluginRepository>
     </pluginRepositories>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <artifactId>maven-ear-plugin</artifactId>
+                    <version>2.7</version>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-ejb-plugin</artifactId>
+                    <version>2.3</version>
+                    <configuration>
+                        <ejbVersion>3.1</ejbVersion>
+                        <archive>
+                            <manifest>
+                                <addClasspath>false</addClasspath>
+                            </manifest>
+                        </archive>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>2.3.2</version>
+                    <configuration>
+                        <source>1.6</source>
+                        <target>1.6</target>
+                    </configuration>
+                </plugin>
+
+                <plugin>
+                    <artifactId>maven-jar-plugin</artifactId>
+                    <version>2.4</version>
+                    <executions>
+                        <execution>
+                            <goals>
+                                <goal>test-jar</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                    <configuration>
+                        <archive>
+                            <manifest>
+                                <addClasspath>true</addClasspath>
+                            </manifest>
+                        </archive>
+                    </configuration>
+                </plugin>
+
+                <plugin>
+                    <artifactId>maven-war-plugin</artifactId>
+                    <version>2.2</version>
+                </plugin>
+
+                <plugin>
+                    <artifactId>maven-surefire-plugin</artifactId>
+                    <version>2.12</version>
+                    <configuration>
+                        <argLine>-enableassertions</argLine>
+                    </configuration>
+                </plugin>
+
+                <plugin>
+                    <artifactId>maven-resources-plugin</artifactId>
+                    <version>2.6</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+
 
 </project>
