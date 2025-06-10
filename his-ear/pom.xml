@@ -1,69 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-    <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>com.test.his</groupId>
         <artifactId>his</artifactId>
+        <groupId>com.test.his</groupId>
         <version>1.0-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
-    <groupId>com.test.his</groupId>
+    <modelVersion>4.0.0</modelVersion>
     <artifactId>his-ear</artifactId>
     <version>1.0-SNAPSHOT</version>
+
     <packaging>ear</packaging>
     <name>his - EAR</name>
 
-    <dependencies>
-        <dependency>
-            <groupId>org.jboss.seam</groupId>
-            <artifactId>jboss-seam</artifactId>
-            <exclusions>
-                <exclusion>
-                    <artifactId>testng</artifactId>
-                    <groupId>org.testng</groupId>
-                </exclusion>
-                <exclusion>
-                    <artifactId>jboss-el</artifactId>
-                    <groupId>org.jboss.el</groupId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-
-        <dependency>
-            <groupId>org.richfaces.framework</groupId>
-            <artifactId>richfaces-api</artifactId>
-        </dependency>
-
-
-        <!-- Application modules -->
-        <dependency>
-            <groupId>com.test.his</groupId>
-            <artifactId>his-war</artifactId>
-            <type>war</type>
-        </dependency>
-
-        <dependency>
-            <groupId>com.test.his</groupId>
-            <artifactId>his-datamodel</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>com.test.his</groupId>
-            <artifactId>his-ejb</artifactId>
-            <type>ejb</type>
-        </dependency>
-
-    </dependencies>
+    <properties>
+        <ear.bundle.directory>lib</ear.bundle.directory>
+    </properties>
 
     <build>
-        <finalName>his-ear</finalName>
         <plugins>
             <plugin>
                 <artifactId>maven-ear-plugin</artifactId>
-                <version>2.7</version>
+                <version>2.10.1</version>
                 <configuration>
                     <ear-subdeployments-isolated>false</ear-subdeployments-isolated>
                     <defaultLibBundleDir>lib</defaultLibBundleDir>
@@ -94,19 +55,56 @@
                     </modules>
                 </configuration>
             </plugin>
-            <plugin>
-                <artifactId>maven-resources-plugin</artifactId>
-                <configuration>
-                    <outputDirectory>${basedir}/target</outputDirectory>
-                </configuration>
-            </plugin>
         </plugins>
-
-        <resources>
-            <resource>
-                <filtering>true</filtering>
-                <directory>src/main/resources</directory>
-            </resource>
-        </resources>
     </build>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.richfaces.framework</groupId>
+            <artifactId>richfaces-api</artifactId>
+            <version>${version.richfaces}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.richfaces.ui</groupId>
+            <artifactId>richfaces-ui</artifactId>
+            <version>${version.richfaces}</version>
+        </dependency>
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>servlet-api</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>javax.faces</groupId>
+            <artifactId>jsf-api</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.jboss.seam</groupId>
+            <artifactId>jboss-seam</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.test.his</groupId>
+            <artifactId>his-war</artifactId>
+            <type>war</type>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.test.his</groupId>
+            <artifactId>his-ejb</artifactId>
+            <type>ejb</type>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-annotations</artifactId>
+            <version>3.4.0.GA</version>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-entitymanager</artifactId>
+            <version>3.4.0.GA</version>
+        </dependency>
+    </dependencies>
 </project>
