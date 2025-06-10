@@ -106,11 +106,6 @@
             <artifactId>hibernate-annotations</artifactId>
             <version>${version.hibernate}</version>
             <scope>compile</scope>
-            <exclusions> <exclusion>
-                <groupId>org.hibernate.javax.persistence</groupId>
-                <artifactId>hibernate-jpa-2.0-api</artifactId>
-            </exclusion>
-            </exclusions>
         </dependency>
 
         <dependency>
@@ -118,11 +113,6 @@
             <artifactId>hibernate-entitymanager</artifactId>
             <version>${version.hibernate}</version>
             <scope>compile</scope>
-            <exclusions> <exclusion>
-                <groupId>org.hibernate.javax.persistence</groupId>
-                <artifactId>hibernate-jpa-2.0-api</artifactId>
-            </exclusion>
-            </exclusions>
         </dependency>
 
 
