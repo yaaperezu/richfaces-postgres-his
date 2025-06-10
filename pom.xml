@@ -174,7 +174,6 @@
                 <groupId>org.jboss.seam</groupId>
                 <artifactId>jboss-seam</artifactId>
                 <version>${version.seam}</version>
-                <scope>provided</scope>
                 <exclusions>
                     <exclusion>
                         <groupId>org.hibernate</groupId>
