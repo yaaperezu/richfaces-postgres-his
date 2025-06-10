@@ -8,6 +8,7 @@
     <sub-deployment name="his-ejb.jar">
         <dependencies>
             <module name="deployment.his-ear.ear"/>
+            <resource-root path="jboss-seam.jar"/>
         </dependencies>
     </sub-deployment>
 
