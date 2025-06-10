@@ -1,0 +1,19 @@
+<jboss-deployment-structure xmlns="urn:jboss:deployment-structure:1.2">
+    <deployment>
+        <exclusions>
+            <module name="org.hibernate"/>
+        </exclusions>
+    </deployment>
+
+    <sub-deployment name="his-ejb.jar">
+        <dependencies>
+            <module name="deployment.his-ear.ear"/>
+        </dependencies>
+    </sub-deployment>
+
+    <sub-deployment name="his-war.war">
+        <dependencies>
+            <module name="deployment.his-ear.ear"/>
+        </dependencies>
+    </sub-deployment>
+</jboss-deployment-structure>

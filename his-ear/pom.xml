@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.test.his</groupId>
+        <artifactId>his</artifactId>
+        <version>1.0-SNAPSHOT</version>
+        <relativePath>../pom.xml</relativePath>
+    </parent>
+
+    <groupId>com.test.his</groupId>
+    <artifactId>his-ear</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>ear</packaging>
+    <name>his - EAR</name>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.jboss.seam</groupId>
+            <artifactId>jboss-seam</artifactId>
+            <exclusions>
+                <exclusion>
+                    <artifactId>testng</artifactId>
+                    <groupId>org.testng</groupId>
+                </exclusion>
+                <exclusion>
+                    <artifactId>jboss-el</artifactId>
+                    <groupId>org.jboss.el</groupId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <dependency>
+            <groupId>org.richfaces.framework</groupId>
+            <artifactId>richfaces-api</artifactId>
+        </dependency>
+
+
+        <!-- Application modules -->
+        <dependency>
+            <groupId>com.test.his</groupId>
+            <artifactId>his-war</artifactId>
+            <type>war</type>
+        </dependency>
+
+        <dependency>
+            <groupId>com.test.his</groupId>
+            <artifactId>his-datamodel</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.test.his</groupId>
+            <artifactId>his-ejb</artifactId>
+            <type>ejb</type>
+        </dependency>
+
+    </dependencies>
+
+    <build>
+        <finalName>his-ear</finalName>
+        <plugins>
+            <plugin>
+                <artifactId>maven-ear-plugin</artifactId>
+                <version>2.7</version>
+                <configuration>
+                    <version>6</version>
+                    <defaultLibBundleDir>lib</defaultLibBundleDir>
+                    <skinnyWars>true</skinnyWars>
+
+                    <modules>
+                        <webModule>
+                            <groupId>com.test.his</groupId>
+                            <artifactId>his-war</artifactId>
+                            <contextRoot>/his</contextRoot>
+                            <bundleFileName>his-war.war</bundleFileName>
+                            <uri>his-war.war</uri>
+                        </webModule>
+
+                        <ejbModule>
+                            <groupId>com.test.his</groupId>
+                            <artifactId>his-ejb</artifactId>
+                            <bundleFileName>his-ejb.jar</bundleFileName>
+                            <uri>his-ejb.jar</uri>
+                        </ejbModule>
+
+                        <jarModule>
+                            <groupId>org.jboss.seam</groupId>
+                            <artifactId>jboss-seam</artifactId>
+                            <includeInApplicationXml>false</includeInApplicationXml>
+                            <bundleFileName>jboss-seam.jar</bundleFileName>
+                        </jarModule>
+                    </modules>
+                </configuration>
+            </plugin>
+            <plugin>
+                <artifactId>maven-resources-plugin</artifactId>
+                <configuration>
+                    <outputDirectory>${basedir}/target</outputDirectory>
+                </configuration>
+            </plugin>
+        </plugins>
+
+        <resources>
+            <resource>
+                <filtering>true</filtering>
+                <directory>src/main/resources</directory>
+            </resource>
+        </resources>
+    </build>
+</project>
