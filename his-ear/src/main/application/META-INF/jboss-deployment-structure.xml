@@ -1,19 +1,69 @@
 <jboss-deployment-structure xmlns="urn:jboss:deployment-structure:1.2">
+    <ear-subdeployments-isolated>false</ear-subdeployments-isolated>
+
     <deployment>
+        <exclude-subsystems>
+            <subsystem name="weld"/>
+        </exclude-subsystems>
         <exclusions>
-            <module name="org.hibernate"/>
+            <module name="javax.faces.api" slot="main"/>
+            <module name="com.sun.jsf-impl" slot="main"/>
+            <module name="org.jboss.as.jsf-injection" slot="main"/>
+            <module name="org.hibernate" slot="main"/>
         </exclusions>
+        <dependencies>
+            <module name="javax.faces.api" slot="mojarra-1.2"/>
+            <module name="com.sun.jsf-impl" slot="mojarra-1.2"/>
+            <module name="org.jboss.as.jsf-injection" slot="mojarra-1.2" services="import"/>
+
+            <module name="org.javassist" export="true"/>
+            <module name="org.dom4j" export="true"/>
+            <module name="org.apache.commons.logging" export="true"/>
+            <module name="org.apache.commons.collections" export="true"/>
+        </dependencies>
     </deployment>
 
-    <sub-deployment name="his-ejb.jar">
+    <sub-deployment name="his-war.war">
+        <exclude-subsystems>
+            <subsystem name="weld"/>
+        </exclude-subsystems>
+        <exclusions>
+            <module name="javax.faces.api" slot="main"/>
+            <module name="com.sun.jsf-impl" slot="main"/>
+            <module name="org.jboss.as.jsf-injection" slot="main"/>
+            <module name="org.hibernate" slot="main"/>
+        </exclusions>
         <dependencies>
-            <module name="deployment.his-ear.ear"/>
+            <module name="javax.faces.api" slot="mojarra-1.2"/>
+            <module name="com.sun.jsf-impl" slot="mojarra-1.2"/>
+            <module name="org.jboss.as.jsf-injection" slot="mojarra-1.2" services="import"/>
+
+            <module name="org.javassist" export="true"/>
+            <module name="org.dom4j" export="true"/>
+            <module name="org.apache.commons.logging" export="true"/>
+            <module name="org.apache.commons.collections" export="true"/>
         </dependencies>
     </sub-deployment>
 
-    <sub-deployment name="his-war.war">
+    <sub-deployment name="his-ejb.jar">
+        <exclude-subsystems>
+            <subsystem name="weld"/>
+        </exclude-subsystems>
+        <exclusions>
+            <module name="javax.faces.api" slot="main"/>
+            <module name="com.sun.jsf-impl" slot="main"/>
+            <module name="org.jboss.as.jsf-injection" slot="main"/>
+            <module name="org.hibernate" slot="main"/>
+        </exclusions>
         <dependencies>
-            <module name="deployment.his-ear.ear"/>
+            <module name="javax.faces.api" slot="mojarra-1.2"/>
+            <module name="com.sun.jsf-impl" slot="mojarra-1.2"/>
+            <module name="org.jboss.as.jsf-injection" slot="mojarra-1.2" services="import"/>
+
+            <module name="org.javassist" export="true"/>
+            <module name="org.dom4j" export="true"/>
+            <module name="org.apache.commons.logging" export="true"/>
+            <module name="org.apache.commons.collections" export="true"/>
         </dependencies>
     </sub-deployment>
 </jboss-deployment-structure>

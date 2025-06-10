@@ -2,8 +2,10 @@ package com.test.his.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "Users")
 public class User extends AbstractEntity {
 
 	private static final long serialVersionUID = 1L;
