@@ -7,7 +7,7 @@
   <module>
     <web>
       <web-uri>his-war.war</web-uri>
-      <context-root>/his</context-root>
+      <context-root>/his-war</context-root>
     </web>
   </module>
   <module>
