@@ -4,6 +4,7 @@
     <deployment>
         <exclusions>
             <module name="org.hibernate"/>
+            <module name="org.hibernate.validator" />
 
             <module name="javax.faces.api" slot="main"/>
             <module name="com.sun.jsf-impl" slot="main"/>
@@ -21,6 +22,8 @@
             <module name="org.dom4j" export="true"/>
             <module name="org.apache.commons.logging" export="true"/>
             <module name="org.apache.commons.collections" export="true"/>
+            <module name="org.hibernate" />
+            <module name="javax.persistence.api" />
         </dependencies>
     </deployment>
 
