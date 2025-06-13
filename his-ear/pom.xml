@@ -103,24 +103,6 @@
                             <bundleDir>lib</bundleDir>
                         </jarModule>
                     </modules>
-                    <libs>
-                        <jarModule>
-                            <groupId>commons-digester</groupId>
-                            <artifactId>commons-digester</artifactId>
-                        </jarModule>
-                        <jarModule>
-                            <groupId>commons-collections</groupId>
-                            <artifactId>commons-collections</artifactId>
-                        </jarModule>
-                        <jarModule>
-                            <groupId>commons-beanutils</groupId>
-                            <artifactId>commons-beanutils</artifactId>
-                        </jarModule>
-                        <jarModule>
-                            <groupId>commons-logging</groupId>
-                            <artifactId>commons-logging</artifactId>
-                        </jarModule>
-                    </libs>
                 </configuration>
             </plugin>
         </plugins>

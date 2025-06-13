@@ -1,0 +1,56 @@
+# Created by Gemini
+
+### Maven ###
+# Directorio de salida de la compilación
+target/
+
+# Archivos de respaldo de Maven
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+
+### IntelliJ IDEA ###
+# Directorio de configuración específico del usuario
+.idea/
+
+# Archivos de módulo de IntelliJ
+*.iml
+*.ipr
+*.iws
+out/
+
+### Archivos de registro ###
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+### Archivos del sistema operativo ###
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+### Archivos generados ###
+# Archivos compilados de Java, Python, etc.
+*.class
+*.pyc
+*.pyo
+
+# Paquetes y Archivos comprimidos
+*.jar
+*.war
+*.ear
+*.zip
+*.tar.gz
+*.rar
