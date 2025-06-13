@@ -10,12 +10,15 @@
     <name>his</name>
 
     <properties>
-        <version.seam>2.2.2.Final</version.seam>
+        <version.seam>2.3.1.Final</version.seam>
         <version.richfaces>3.2.2.GA</version.richfaces>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <javaee6.web.spec.version>3.0.1.Final</javaee6.web.spec.version>
         <version.hibernate>3.5.6-Final</version.hibernate>
+        <version.hibernate.validator>4.3.2.Final</version.hibernate.validator>
+        <version.validation.api>1.0.0.GA</version.validation.api>
     </properties>
+
 
     <!-- test scope dependency -->
     <dependencies>
@@ -69,7 +72,8 @@
             <dependency>
                 <groupId>javax.validation</groupId>
                 <artifactId>validation-api</artifactId>
-                <version>1.0.0.GA</version>
+                <version>${version.validation.api}</version>
+                <scope>provided</scope>
             </dependency>
             <dependency>
                 <groupId>javax.servlet</groupId>
@@ -82,12 +86,6 @@
                 <groupId>org.jboss.seam</groupId>
                 <artifactId>jboss-seam</artifactId>
                 <version>${version.seam}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.jboss.seam</groupId>
-                <artifactId>jboss-seam</artifactId>
-                <version>${version.seam}</version>
-                <type>ejb</type>
             </dependency>
             <dependency>
                 <groupId>org.jboss.seam</groupId>
@@ -113,7 +111,8 @@
             <dependency>
                 <groupId>org.hibernate</groupId>
                 <artifactId>hibernate-validator</artifactId>
-                <version>4.2.0.Final</version>
+                <version>${version.hibernate.validator}</version>
+                <scope>provided</scope>
             </dependency>
             <dependency>
                 <groupId>javax.faces</groupId>
